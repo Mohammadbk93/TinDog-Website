@@ -13,8 +13,10 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# Serve static files (CSS, images, etc.)
+# Serve static files 
 app.mount("/static", StaticFiles(directory="static"), name="static")
+# HTML template rendering
+templates = Jinja2Templates(directory="templates")
 
 # CORS setup
 app.add_middleware(
@@ -51,8 +53,7 @@ def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db.refresh(db_user)
     return db_user
 
-# HTML template rendering
-templates = Jinja2Templates(directory="templates")
+
 
 @app.get("/", response_class=HTMLResponse)
 def root(request: Request):
