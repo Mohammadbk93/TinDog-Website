@@ -58,3 +58,4 @@ def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
 @app.get("/", response_class=HTMLResponse)
 def root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
