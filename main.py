@@ -1,18 +1,22 @@
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException, Depends, Request
 from sqlalchemy.orm import Session
 from db_config import SessionLocal, engine, Base  
+from fastapi.templating import Jinja2Templates
 import models, schemas
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 from utils import hash_password
-
 
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-#  CORS middleware setup
+# Serve static files (CSS, images, etc.)
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# CORS setup
 app.add_middleware(
     CORSMiddleware, 
     allow_origins=["*"],  
@@ -21,7 +25,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-#  Dependency for DB session
+# DB session dependency
 def get_db():
     db = SessionLocal()
     try:
@@ -29,7 +33,7 @@ def get_db():
     finally:
         db.close()
 
-#  API endpoint for user registration
+# Registration endpoint
 @app.post("/register", response_model=schemas.UserOut)
 def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
     existing_user = db.query(models.User).filter(models.User.email == user.email).first()
@@ -47,16 +51,9 @@ def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db.refresh(db_user)
     return db_user
 
+# HTML template rendering
+templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
-def root():
-    return """
-    <html>
-        <head><title>Tindog API</title></head>
-        <body>
-            <h1>🚀 Tindog API is running!</h1>
-            <p>Use <code>/register</code> endpoint to register users.</p>
-        </body>
-    </html>
-    """
-
+def root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
