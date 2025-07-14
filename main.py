@@ -45,3 +45,17 @@ def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+@app.get("/", response_class=HTMLResponse)
+def root():
+    return """
+    <html>
+        <head><title>Tindog API</title></head>
+        <body>
+            <h1>🚀 Tindog API is running!</h1>
+            <p>Use <code>/register</code> endpoint to register users.</p>
+        </body>
+    </html>
+    """
+
