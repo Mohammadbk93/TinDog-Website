@@ -9,13 +9,15 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
 
+
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="./static/images/dog-img.jpg" alt="TinDog logo" height="30" class="me-2 rounded-circle">
+        <img src="{{ url_for('static', path='images/dog-img.jpg') }}" alt="TinDog logo" height="30"
+          class="me-2 rounded-circle">
         TinDog
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -55,8 +57,9 @@
   <section id="title">
     <div class="container col-xxl-8 px-4 py-5">
       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6"> <img src="./static/images/App-Dog1.JPG" class="d-block mx-lg-auto img-fluid"
-            alt="app demo" height="200" loading="lazy"> </div>
+        <div class="col-10 col-sm-8 col-lg-6"> <img src="{{ url_for('static', path='images/App-Dog1.JPG') }}"
+            class="d-block mx-lg-auto img-fluid" alt="app demo" height="200" loading="lazy">
+        </div>
         <div class="col-lg-6">
           <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Meet new and interesting dogs nearby.</h1>
 
@@ -140,7 +143,7 @@
         <div class="container py-5">
           <h2 class="text-body-emphasis text-nowrap">"I no longer have to sniff other dogs for love. I've found the
             hottest Corgi on TinDog. Woof."</h2>
-          <img class="profile-img mt-5" src="./static/images/dog-img.jpg" alt="dog image">
+          <img class="profile-img mt-5" src="{{ url_for('static', path='images/dog-img.jpg') }}" alt="dog image">
           <p class="col-lg-8 mx-auto lead mt-2">
             Pebbles, Bologna
           </p>
@@ -148,16 +151,16 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-3 col-sm-12">
-              <img src="./static/images/techcrunch.png" alt="techcrunch" height="30">
+              <img src="{{ url_for('static', path='images/techcrunch.png') }}" alt="techcrunch" height="30">
             </div>
             <div class="col-lg-3 col-sm-12">
-              <img src="./static/images/mashable.png" alt="mashable" height="30">
+              <img src="{{ url_for('static', path='images/mashable.png') }}" alt="mashable" height="30">
             </div>
             <div class="col-lg-3 col-sm-12">
-              <img src="./static/images/bizinsider.png" alt="bizinsider" height="30">
+              <img src="{{ url_for('static', path='images/bizinsider.png') }}" alt="bizinsider" height="30">
             </div>
             <div class="col-lg-3 col-sm-12">
-              <img src="./static/images/tnw.png" alt="tmw" height="30">
+              <img src="{{ url_for('static', path='images/tnw.png') }}" alt="tmw" height="30">
             </div>
           </div>
         </div>
@@ -275,7 +278,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
-          <img src="./static/images/dog-img.jpg" alt="TinDog logo" class="rounded-circle mb-3" height="100">
+          <img src="{{ url_for('static', path='images/dog-img.jpg') }}" alt="TinDog logo" class="rounded-circle mb-3"
+            height="100">
           <p class="lead px-4">
             TinDog is an imaginary website where adorable dogs can find their perfect partners! 🐶💕<br>
             Whether you're looking for long walks, shared snacks, or tail-wagging fun, TinDog helps your pet find love.
@@ -301,7 +305,8 @@
             <!-- Dog Card 1 -->
             <div class="col">
               <div class="card h-100 shadow-sm">
-                <img src="./static/images/dog-img.jpg" class="card-img-top" alt="Buddy the Golden Retriever">
+                <img src="{{ url_for('static', path='images/dog-img.jpg') }}" class="card-img-top"
+                  alt="Buddy the Golden Retriever">
                 <div class="card-body text-center">
                   <h5 class="card-title">Buddy</h5>
                   <span class="badge bg-success fs-6">€299</span>
@@ -311,7 +316,8 @@
             <!-- Dog Card 2 -->
             <div class="col">
               <div class="card h-100 shadow-sm">
-                <img src="./static/images/dog-img22.jpg" class="card-img-top" alt="Bella the Corgi">
+                <img src="{{ url_for('static', path='images/dog-img22.jpg') }}" class="card-img-top"
+                  alt="Bella the Corgi">
                 <div class="card-body text-center">
                   <h5 class="card-title">Bella</h5>
                   <span class="badge bg-success fs-6">€350</span>
@@ -321,7 +327,8 @@
             <!-- Dog Card 3 -->
             <div class="col">
               <div class="card h-100 shadow-sm">
-                <img src="./static/images/dog-img3.jpg" class="card-img-top" alt="Max the Poodle">
+                <img src="{{ url_for('static', path='images/dog-img3.jpg') }}" class="card-img-top"
+                  alt="Max the Poodle">
                 <div class="card-body text-center">
                   <h5 class="card-title">Max</h5>
                   <span class="badge bg-success fs-6">€450</span>
@@ -331,7 +338,8 @@
             <!-- Dog Card 4 -->
             <div class="col">
               <div class="card h-100 shadow-sm">
-                <img src="./static/images/dog-img4.jpg" class="card-img-top" alt="Lucy the Beagle">
+                <img src="{{ url_for('static', path='images/dog-img4.jpg') }}" class="card-img-top"
+                  alt="Lucy the Beagle">
                 <div class="card-body text-center">
                   <h5 class="card-title">Lucy</h5>
                   <span class="badge bg-success fs-6">€275</span>
@@ -341,7 +349,8 @@
             <!-- Dog Card 5 -->
             <div class="col">
               <div class="card h-100 shadow-sm">
-                <img src="./static/images/dog-img5.jpg" class="card-img-top" alt="Charlie the Boxer">
+                <img src="{{ url_for('static', path='images/dog-img5.jpg') }}" class="card-img-top"
+                  alt="Charlie the Boxer">
                 <div class="card-body text-center">
                   <h5 class="card-title">Charlie</h5>
                   <span class="badge bg-success fs-6">€400</span>
@@ -351,7 +360,8 @@
             <!-- Dog Card 6 -->
             <div class="col">
               <div class="card h-100 shadow-sm">
-                <img src="./static/images/dog-img6.jpg" class="card-img-top" alt="Daisy the Dachshund">
+                <img src="{{ url_for('static', path='images/dog-img6.jpg') }}" class="card-img-top"
+                  alt="Daisy the Dachshund">
                 <div class="card-body text-center">
                   <h5 class="card-title">Daisy</h5>
                   <span class="badge bg-success fs-6">€320</span>
@@ -361,7 +371,8 @@
             <!-- Dog Card 7 -->
             <div class="col">
               <div class="card h-100 shadow-sm">
-                <img src="./static/images/dog-img7.jpg" class="card-img-top" alt="Rocky the Bulldog">
+                <img src="{{ url_for('static', path='images/dog-img7.jpg') }}" class="card-img-top"
+                  alt="Rocky the Bulldog">
                 <div class="card-body text-center">
                   <h5 class="card-title">Rocky</h5>
                   <span class="badge bg-success fs-6">€390</span>
@@ -371,7 +382,8 @@
             <!-- Dog Card 8 -->
             <div class="col">
               <div class="card h-100 shadow-sm">
-                <img src="./static/images/dog-img8.jpg" class="card-img-top" alt="Luna the Husky">
+                <img src="{{ url_for('static', path='images/dog-img8.jpg') }}" class="card-img-top"
+                  alt="Luna the Husky">
                 <div class="card-body text-center">
                   <h5 class="card-title">Luna</h5>
                   <span class="badge bg-success fs-6">€410</span>
@@ -381,7 +393,8 @@
             <!-- Dog Card 9 -->
             <div class="col">
               <div class="card h-100 shadow-sm">
-                <img src="./static/images/dog-img9.jpg" class="card-img-top" alt="Milo the Shiba Inu">
+                <img src="{{ url_for('static', path='images/dog-img9.jpg') }}" class="card-img-top"
+                  alt="Milo the Shiba Inu">
                 <div class="card-body text-center">
                   <h5 class="card-title">Milo</h5>
                   <span class="badge bg-success fs-6">€360</span>
@@ -391,7 +404,8 @@
             <!-- Dog Card 10 -->
             <div class="col">
               <div class="card h-100 shadow-sm">
-                <img src="./static/images/dog-img10.jpg" class="card-img-top" alt="Chloe the Maltese">
+                <img src="{{ url_for('static', path='images/dog-img10.jpg') }}" class="card-img-top"
+                  alt="Chloe the Maltese">
                 <div class="card-body text-center">
                   <h5 class="card-title">Chloe</h5>
                   <span class="badge bg-success fs-6">€280</span>
@@ -460,57 +474,57 @@
   </script>
 
   <script>
-  document.getElementById("signupForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
+    document.getElementById("signupForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const repeatPassword = e.target.repeat_password.value;
-    const errorText = document.getElementById("passwordError");
+      const name = e.target.name.value;
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+      const repeatPassword = e.target.repeat_password.value;
+      const errorText = document.getElementById("passwordError");
 
-    if (password !== repeatPassword) {
-      errorText.classList.remove("d-none");
-      return;
-    }
-
-    errorText.classList.add("d-none");
-
-    try {
-      const response = await fetch("http://localhost:8000/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password })
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        //  Show Bootstrap success alert dynamically
-        const successMsg = document.createElement("div");
-        successMsg.className = "alert alert-success mt-3";
-        successMsg.textContent = " Registration successful!";
-        document.querySelector(".modal-body").appendChild(successMsg);
-
-        // Optionally reset the form
-        e.target.reset();
-
-        // Hide modal after a delay
-        setTimeout(() => {
-          const modal = bootstrap.Modal.getInstance(document.getElementById("signupModal"));
-          modal.hide();
-          successMsg.remove();
-        }, 2000);
-      } else {
-        alert(result.message || "Registration failed.");
+      if (password !== repeatPassword) {
+        errorText.classList.remove("d-none");
+        return;
       }
 
-    } catch (error) {
-      alert("Server error. Please try again.");
-      console.error(error);
-    }
-  });
-</script>
+      errorText.classList.add("d-none");
+
+      try {
+        const response = await fetch("http://localhost:8000/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          //  Show Bootstrap success alert dynamically
+          const successMsg = document.createElement("div");
+          successMsg.className = "alert alert-success mt-3";
+          successMsg.textContent = " Registration successful!";
+          document.querySelector(".modal-body").appendChild(successMsg);
+
+          // Optionally reset the form
+          e.target.reset();
+
+          // Hide modal after a delay
+          setTimeout(() => {
+            const modal = bootstrap.Modal.getInstance(document.getElementById("signupModal"));
+            modal.hide();
+            successMsg.remove();
+          }, 2000);
+        } else {
+          alert(result.message || "Registration failed.");
+        }
+
+      } catch (error) {
+        alert("Server error. Please try again.");
+        console.error(error);
+      }
+    });
+  </script>
 
 
 
