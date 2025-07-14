@@ -1,6 +1,8 @@
 fastapi
-uvicorn
+uvicorn[standard]         # includes `watchgod`, `httptools`, `websockets`, etc.
 jinja2
 psycopg2-binary
 sqlalchemy
 python-dotenv
+passlib[bcrypt]           # includes secure bcrypt support for hashing
+python-multipart          # needed if you're handling file uploads or forms
