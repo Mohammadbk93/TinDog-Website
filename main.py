@@ -21,7 +21,7 @@ templates = Jinja2Templates(directory="templates")
 # CORS setup
 app.add_middleware(
     CORSMiddleware, 
-    allow_origins=["https://your-frontend.com"],  
+    allow_origins=["https://tindog-website-uwnd.onrender.com"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

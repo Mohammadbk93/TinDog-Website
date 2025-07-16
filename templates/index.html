@@ -491,7 +491,7 @@
       errorText.classList.add("d-none");
 
       try {
-        const response = await await fetch("https://your-deployment-url.com/register", {
+        await fetch("https://tindog-website-uwnd.onrender.com/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, password })
