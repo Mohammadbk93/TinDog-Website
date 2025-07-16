@@ -422,109 +422,102 @@
   </div>
 
   <!-- Sign-Up Modal -->
-  <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+<div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
 
-        <div class="modal-header">
-          <h5 class="modal-title">Sign Up</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      <div class="modal-header">
+        <h5 class="modal-title">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <form id="signupForm">
+        <div class="modal-body">
+          <!-- Add IDs to inputs -->
+          <input class="form-control mb-2" id="nameInput" name="name" placeholder="Name" required />
+          <input class="form-control mb-2" id="emailInput" type="email" name="email" placeholder="Email" required />
+
+          <!-- Password -->
+          <div class="input-group mb-2">
+            <input class="form-control" type="password" name="password" id="passwordInput" placeholder="Password" required />
+            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('passwordInput')">👁️</button>
+          </div>
+
+          <!-- Repeat Password -->
+          <div class="input-group mb-2">
+            <input class="form-control" type="password" name="repeat_password" id="repeatPasswordInput" placeholder="Repeat Password" required />
+            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('repeatPasswordInput')">👁️</button>
+          </div>
+
+          <p id="passwordError" class="text-danger d-none">❗ Passwords do not match.</p>
         </div>
 
-        <form id="signupForm">
-          <div class="modal-body">
-            <input class="form-control mb-2" name="name" placeholder="Name" required />
-            <input class="form-control mb-2" type="email" name="email" placeholder="Email" required />
-
-            <!-- Password -->
-            <div class="input-group mb-2">
-              <input class="form-control" type="password" name="password" id="password" placeholder="Password"
-                required />
-              <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password')">👁️</button>
-            </div>
-
-            <!-- Repeat Password -->
-            <div class="input-group mb-2">
-              <input class="form-control" type="password" name="repeat_password" id="repeatPassword"
-                placeholder="Repeat Password" required />
-              <button class="btn btn-outline-secondary" type="button"
-                onclick="togglePassword('repeatPassword')">👁️</button>
-            </div>
-
-            <p id="passwordError" class="text-danger d-none">❗ Passwords do not match.</p>
-          </div>
-
-          <div class="modal-footer">
-            <button class="btn btn-primary" type="submit">Register</button>
-          </div>
-        </form>
-      </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit">Register</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
+
 
   <script>
-    function togglePassword(id) {
-      const input = document.getElementById(id);
-      if (input.type === "password") {
-        input.type = "text";
-      } else {
-        input.type = "password";
-      }
+  function togglePassword(id) {
+    const input = document.getElementById(id);
+    input.type = input.type === "password" ? "text" : "password";
+  }
+</script>
+
+<script>
+  document.getElementById("signupForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const repeatPassword = e.target.repeat_password.value;
+    const errorText = document.getElementById("passwordError");
+
+    if (password !== repeatPassword) {
+      errorText.classList.remove("d-none");
+      return;
     }
-  </script>
 
-  <script>
-    document.getElementById("signupForm").addEventListener("submit", async function (e) {
-      e.preventDefault();
+    errorText.classList.add("d-none");
 
-      const name = e.target.name.value;
-      const email = e.target.email.value;
-      const password = e.target.password.value;
-      const repeatPassword = e.target.repeat_password.value;
-      const errorText = document.getElementById("passwordError");
+    try {
+      const response = await fetch("https://tindog-website-uwnd.onrender.com/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password })
+      });
 
-      if (password !== repeatPassword) {
-        errorText.classList.remove("d-none");
-        return;
+      const result = await response.json();  
+
+      if (response.ok) {
+        const successMsg = document.createElement("div");
+        successMsg.className = "alert alert-success mt-3";
+        successMsg.textContent = "Registration successful!";
+        document.querySelector(".modal-body").appendChild(successMsg);
+
+        e.target.reset();
+
+        setTimeout(() => {
+          const modal = bootstrap.Modal.getInstance(document.getElementById("signupModal"));
+          modal.hide();
+          successMsg.remove();
+        }, 2000);
+      } else {
+        alert(result.message || "Registration failed.");
       }
 
-      errorText.classList.add("d-none");
+    } catch (error) {
+      alert("Server error. Please try again.");
+      console.error(error);
+    }
+  });
+</script>
 
-      try {
-        await fetch("https://tindog-website-uwnd.onrender.com/register", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email, password })
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-          //  Show Bootstrap success alert dynamically
-          const successMsg = document.createElement("div");
-          successMsg.className = "alert alert-success mt-3";
-          successMsg.textContent = " Registration successful!";
-          document.querySelector(".modal-body").appendChild(successMsg);
-
-          // Optionally reset the form
-          e.target.reset();
-
-          // Hide modal after a delay
-          setTimeout(() => {
-            const modal = bootstrap.Modal.getInstance(document.getElementById("signupModal"));
-            modal.hide();
-            successMsg.remove();
-          }, 2000);
-        } else {
-          alert(result.message || "Registration failed.");
-        }
-
-      } catch (error) {
-        alert("Server error. Please try again.");
-        console.error(error);
-      }
-    });
-  </script>
 
 
 
