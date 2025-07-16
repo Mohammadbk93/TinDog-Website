@@ -28,7 +28,7 @@ It’s a playful concept meant to sharpen my technical skills while building som
 ### Backend:
 - **FastAPI** – for API development and server-side rendering.
 - **SQLAlchemy** – ORM for database management.
-- **SQLite** – lightweight embedded database.
+- **PostgreSQL** – production-grade relational database.
 - **Jinja2** – for rendering HTML templates.
 
 ### Frontend:
