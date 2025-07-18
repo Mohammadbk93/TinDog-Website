@@ -41,6 +41,7 @@ It’s a playful concept meant to sharpen my technical skills while building som
 ## 🗄️ Database: PostgreSQL
 
 For this project, I used **PostgreSQL** to store user registration data.
+<img width="887" height="164" alt="DataBase1" src="https://github.com/user-attachments/assets/a29a127d-0998-4e24-a949-81480326e222" />
 
 ### 🧾 Users Table Overview
 
