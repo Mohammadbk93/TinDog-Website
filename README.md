@@ -36,6 +36,35 @@ It’s a playful concept meant to sharpen my technical skills while building som
 - **Bootstrap 5** – for styling and modal UI.
 - **JavaScript** – for client-side form validation and interactivity.
 
+---
+
+## 🗄️ Database: PostgreSQL
+
+For this project, I used **PostgreSQL** to store user registration data.
+
+### 🧾 Users Table Overview
+
+The `users` table stores the following information:
+
+| Column Name | Data Type           | Description                                  |
+|-------------|---------------------|----------------------------------------------|
+| `id`        | `integer (PK)`      | Unique identifier for each user              |
+| `name`      | `varchar`           | Full name of the user                        |
+| `email`     | `varchar`           | User's email address (must be unique)        |
+| `password`  | `varchar` (hashed)  | User password hashed using **bcrypt**        |
+| `created_at`| `timestamp`         | Date and time when the user was registered   |
+
+### 🔐 Password Security
+
+- Passwords are **never stored in plain text**.
+- They are hashed using **bcrypt** to ensure user privacy and security.
+
+### 🕒 Timestamps
+
+- Each user record includes a `created_at` field.
+- This tracks the **exact time** of registration for logging and auditing purposes.
+
+
 ### Utilities:
 - **Uvicorn** – ASGI server for running FastAPI.
 - **CORS Middleware** – to allow cross-origin requests.
