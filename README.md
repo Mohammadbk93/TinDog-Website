@@ -13,7 +13,7 @@ It’s a playful concept meant to sharpen my technical skills while building som
 
 ---
 
-## 🎯 Project Objectives
+##  Project Objectives
 
 - Develop a full-stack web application using FastAPI and HTML/CSS.
 - Allow users (dog owners) to register via a signup form.
