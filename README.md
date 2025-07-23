@@ -66,7 +66,7 @@ The `users` table stores the following information:
 - This tracks the **exact time** of registration for logging and auditing purposes.
 
 
-### Utilities:
+### Utilities
 - **Uvicorn** – ASGI server for running FastAPI.
 - **CORS Middleware** – to allow cross-origin requests.
 - **Jinja2Templates** – to render dynamic HTML content.
