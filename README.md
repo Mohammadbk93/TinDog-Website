@@ -1,4 +1,4 @@
-# TinDog 🐶
+# TinDog 
 
 TinDog is a fun, imaginary dating website for dogs, inspired by the idea of combining pet enthusiasm with modern web development. This project was created to practice and demonstrate full-stack skills including frontend design, backend development, and RESTful API integration using **FastAPI**.
 
