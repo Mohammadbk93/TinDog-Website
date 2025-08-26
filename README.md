@@ -23,7 +23,7 @@ It’s a playful concept meant to sharpen my technical skills while building som
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 ### Backend:
 - **FastAPI** – for API development and server-side rendering.
