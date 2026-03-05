@@ -10,7 +10,6 @@ It’s a playful concept meant to sharpen my technical skills while building som
 
 <img width="1079" height="388" alt="TinDog_1" src="https://github.com/user-attachments/assets/fa960ad6-0662-40cd-b94f-205edf318a9f" />
 
-
 ---
 
 ##  Project Objectives
